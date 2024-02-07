@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -14,7 +15,7 @@ body{
 
 header nav{
     background-color: black;
-    padding: 20px;
+    padding: 19px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,7 +23,7 @@ header nav{
 }
 
 header nav h1{
-    font-size: 26px;
+    font-size: 25px;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -56,43 +57,43 @@ form button[type="submit"]:hover , .recipe button:hover{
     
 }
 
-.recipe-container{
+.food-box{
     text-align: center;
-    margin-top: 20px;
+    margin-top: 18px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px , 1fr ));
-    grid-gap: 40px;
+    grid-gap: 38px;
     width: 80%;
-    margin: 10px auto;
+    margin: 9px auto;
     padding: 20px ;
     place-items: center;
 }
 
-.recipe{
+.foooood{
     background-color: #fff;
     display: flex;
     flex-direction: column;
     color:pink;
-    border-radius: 6px;
+    border-radius: 5px;
     cursor: pointer;
-    max-width: 350px;
+    max-width: 340px;
 }
 
-.recipe img{
+.foooood img{
     height: 300px;
 }
-.recipe h3{
-    font-size: 24px;
+.foooood h3{
+    font-size: 25px;
 }
-.recipe p{
+.foooood p{
     font-size: 20px;
     color: purple;
     margin: 5px 0;
 }
 
-.recipe button{
+.foooood button{
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 550;
     padding: 10px;
     border-radius: 2px;
     border: none;
@@ -101,7 +102,7 @@ form button[type="submit"]:hover , .recipe button:hover{
     color: #fff;
 }
 
-.recipe-details{
+.foodInfo{
     display: none;
     position: fixed;
     top: 50%;
@@ -112,23 +113,24 @@ form button[type="submit"]:hover , .recipe button:hover{
     width: 30%;
     height: 70%;
     font-size: 20px;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in;
     overflow-y: scroll ;
 
 }
 
-.recipe-details-content{
+.foodInfo-info{
     margin: 10px;
 }
 
 .recipeName{
     text-align: center;
     text-transform: uppercase;
-    text-decoration: underline;
 }
 
 
 /* resposnive code  */
+/* took help from youtube for the responsive code */
+
 @media screen and (max-width:600px) {
     header nav{
         flex-direction: column;
@@ -138,5 +140,3 @@ form button[type="submit"]:hover , .recipe button:hover{
         margin-top: 20px;
     }
 }
-
-  

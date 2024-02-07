@@ -1,24 +1,24 @@
-const searchBox = document.querySelector('.searchBox');
-const searchBtn = document.querySelector('.searchBtn');
-const recipeContainer = document.querySelector('.recipe-container');
-const recipeDetailsContent = document.querySelector('.recipe-details-content');
-const recipeCloseBtn = document.querySelector('.recipe-close-btn');
+const searchBox = document.querySelector('.sBox');
+const searchBtn = document.querySelector('.sButten');
+const foodBox = document.querySelector('.food-box');
+const recipyInfoSection = document.querySelector('.foodInfo-info');
+const crossButton = document.querySelector('.close-btn');
 
 
 
 
 //function to get recipe
 const fetchRecipes = async (query) => {
-    recipeContainer.innerHTML = "Fetching Recipes....."
+    foodBox.innerHTML = "dhun dhun dhun dhunnn dhunnnn dhunnnn....."
     const data = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query} `);
     const response = await data.json();
    // console.log(response);
 
-    recipeContainer.innerHTML = "";
+    foodBox.innerHTML = "";
 
    response.meals.forEach(meal => {
     const recipeDiv = document.createElement('div');
-    recipeDiv.classList.add('recipe');
+    recipeDiv.classList.add('foooood');
     recipeDiv.innerHTML = `
     <img src="${meal.strMealThumb}">
     <h3>${meal.strMeal}</h3>
@@ -35,7 +35,7 @@ const fetchRecipes = async (query) => {
         openRecipePopup(meal);
     });
 
-    recipeContainer.appendChild(recipeDiv);
+    foodBox.appendChild(recipeDiv);
    });
 }
 
@@ -61,7 +61,7 @@ const fetchIngredients = (meal) => {
 
 
 const openRecipePopup = (meal) => {
-    recipeDetailsContent.innerHTML =`
+    recipyInfoSection.innerHTML =`
     <h2 class="recipeName">${meal.strMeal}</h2>
     <h3> ingredients : </h3>
     <ul class="ingridentList">${fetchIngredients(meal)}</ul>
@@ -70,14 +70,14 @@ const openRecipePopup = (meal) => {
         <p class="recipeInstructions">${meal.strInstructions}</p>
     </div>
     `
-   recipeDetailsContent.parentElement.style.display = "block"
+   recipyInfoSection.parentElement.style.display = "block"
 }
 
 
 
 
-recipeCloseBtn.addEventListener('click', () => {
-    recipeDetailsContent.parentElement.style.display ="none";
+crossButton.addEventListener('click', () => {
+    recipyInfoSection.parentElement.style.display ="none";
 });
 
 
@@ -87,7 +87,7 @@ searchBtn.addEventListener('click' , (e)=>{
     e.preventDefault();
     const searchInput = searchBox.value.trim();
     if(!searchInput){
-        recipeContainer.innerHTML = `<h2>for someone who dont know how to write in the text box , please likh do yeh gareeb aadmi bheek mang raha hai...please likh do</h2>`;
+        foodBox.innerHTML = `<h2>for someone who dont know how to write in the text box , please likh do yeh gareeb aadmi bheek mang raha hai...please likh do</h2>`;
         return;
        
     }
